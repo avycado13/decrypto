@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decrypto Game</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Decrypto Game</h1>
+    <h2>Players</h2>
+    <ul id="players-list">
+        {% for player in game.players %}
+            <li>{{ player }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Clues</h2>
+    <ul id="clues-list">
+        {% for clue in game.clues %}
+            <li>{{ clue }}</li>
+        {% endfor %}
+    </ul>
+    <form id="clue-form">
+        <input type="text" id="clue-input" placeholder="Enter your clue">
+        <button type="submit">Submit Clue</button>
+    </form>
+    <form id="guess-form">
+        <input type="text" id="guess-input" placeholder="Enter your guess">
+        <button type="submit">Guess Code Word</button>
+    </form>
+    <h2 id="turn-message"></h2>
+    <div id="chat-container">
+        <ul id="chat-messages"></ul>
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Enter your message">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
