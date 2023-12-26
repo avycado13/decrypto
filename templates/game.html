@@ -11,15 +11,26 @@
         {% for player in game.players %}
             <li>{{ player }}</li>
         {% endfor %}
+        {% for team, players in game.teams.items() %}
+            {% if team == current_team %}
+                <h3>Team: {{ team }}</h3>
+                <ul>
+                    <li>{{ player }} - Code Word: {{ game.code_words[team][loop.index0] }}</li>
+                </ul>
+            {% endif %}
+        {% endfor %}
+        {% if player == game.encoder %}
+            <p>You are the encoder for this round.</p>
+            <p>Your code is: {{ game.code }}</p>
+        {% endif %}
+
+
     </ul>
     <h2>Clues</h2>
-    <ul id="clues-list">
-        {% for clue in game.clues %}
-            <li>{{ clue }}</li>
-        {% endfor %}
-    </ul>
     <form id="clue-form">
-        <input type="text" id="clue-input" placeholder="Enter your clue">
+        <input type="text" id="clue-input1" placeholder="Enter clue #1">
+        <input type="text" id="clue-input2" placeholder="Enter clue #2">
+        <input type="text" id="clue-input3" placeholder="Enter clue #3">
         <button type="submit">Submit Clue</button>
     </form>
     <form id="guess-form">

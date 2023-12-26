@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decrypto Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Decrypto Game</h1>
+    <div id="game-state">
+        <h2>Game State</h2>
+        <p id="team1-clue"></p>
+        <p id="team2-clue"></p>
+        <p id="team1-guess"></p>
+        <p id="team2-guess"></p>
+        <p id="team1-score"></p>
+        <p id="team2-score"></p>
+    </div>
+    <div id="actions">
+        <h2>Actions</h2>
+        <form id="clue-form">
+            <input type="text" id="clue-input" placeholder="Enter clue">
+            <input type="number" id="clue-count-input" placeholder="Enter clue count">
+            <button type="submit">Submit Clue</button>
+        </form>
+        <form id="guess-form">
+            <input type="text" id="guess-input" placeholder="Enter guess">
+            <button type="submit">Submit Guess</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
