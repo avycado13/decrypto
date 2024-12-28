@@ -33,7 +33,7 @@ def handle_join(data):
     emit('join_success', {'team': team})
 
 @socketio.on('submit_clue')
-def handle_submit_clue(data):
+def handle_submit_clue(data): 
     team = data['team']
     clue = data['clue']
     clue_count = data['clue_count']
